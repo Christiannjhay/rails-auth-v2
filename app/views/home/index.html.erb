@@ -1,5 +1,9 @@
 <h1>Welcome to the Home Page!</h1>
 
-<p>Welcome, <%= current_user.first_name %>!</p>
+<p>Welcome, <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+<p><%= current_user.id %>
+<p><%= current_user.email %>
 
+
+<%= link_to 'Edit Profile', edit_user_path(current_user), class: 'btn btn-primary' %>
 <%= button_to 'Logout', logout_path, method: :delete, class: 'btn btn-primary' %>

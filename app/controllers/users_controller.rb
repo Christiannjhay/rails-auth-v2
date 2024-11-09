@@ -24,15 +24,21 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/:id/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # PATCH/PUT /users/:id
   def update
     @user = User.find(params[:id])
-
     if @user.update(user_params)
-      render json: @user, status: :created
+      redirect_to home_path, notice: 'Profile updated successfully.'
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render :edit
     end
   end
+
 
   def destroy
     @user = User.find(params[:id])
