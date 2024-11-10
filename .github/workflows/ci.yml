@@ -51,6 +51,9 @@ jobs:
           bundler-cache: true
       - name: Istall dependencies
         run: bundle install
+        
+      - name: Set execute permissions for RuboCop
+        run: chmod +x bin/rubocop
 
       - name: Lint code for consistent style
         run: bin/rubocop -f github
