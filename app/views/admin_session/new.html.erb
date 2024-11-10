@@ -1,0 +1,29 @@
+<h1>Admin Login</h1>
+
+<%= form_with url: admin_login_post_path, local: true do |form| %>
+<% if flash[:alert] %>
+<div class="alert">
+    <%= flash[:alert] %>
+</div>
+<% end %>
+
+<div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, name: "session[email]", required: true %>
+</div>
+
+<div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, name: "session[password]", required: true %>
+</div>
+
+
+<div class="actions">
+    <button type="submit" class="login_login-button">Log In</button>
+</div>
+<% end %>
+
+
+<%= content_for :styles do %>
+<%= stylesheet_link_tag 'login' %>
+<% end %>

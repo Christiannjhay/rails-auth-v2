@@ -16,8 +16,14 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/home', to: 'home#index'
+  get 'home', to: 'home#index'
   get 'login', to: 'sessions#new'
+
+  get 'admin/login', to: 'admin_session#new', as: 'admin_login'
+  get 'admin/home', to: 'admin_home#new', as: 'admin_home_view'
+  post 'admin/login', to: 'admin_session#create', as: 'admin_login_post'
+
+
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: 'logout' 
 
