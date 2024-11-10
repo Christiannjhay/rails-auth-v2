@@ -1,0 +1,37 @@
+<h1>New Hotel</h1>
+
+
+<%= form_with model: @hotel, url: create_hotel_view_path, local: true do |form| %>
+
+<div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+</div>
+
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+</div>
+
+<div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+</div>
+
+<div class="field">
+    <%= form.label :amenities, "Select Amenities" %><br>
+    <%= form.check_box :amenities, { multiple: true }, "wifi", nil %> Wi-Fi<br>
+    <%= form.check_box :amenities, { multiple: true }, "pool", nil %> Pool<br>
+    <%= form.check_box :amenities, { multiple: true }, "gym", nil %> Gym<br>
+    <%= form.check_box :amenities, { multiple: true }, "parking", nil %> Parking<br>
+</div>
+
+<div class="field">
+    <%= form.label :media %>
+    <%= form.text_area :media, placeholder: '["image1.jpg", "image2.jpg"]' %>
+</div>
+
+<div class="actions">
+    <%= form.submit "Create Hotel" %>
+</div>
+<% end %>

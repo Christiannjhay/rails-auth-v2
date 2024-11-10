@@ -1,6 +1,6 @@
 class AdminSessionController < ApplicationController
   include AdminSessionHelper
-
+  
   def new
   end
 

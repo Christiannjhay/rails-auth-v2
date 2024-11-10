@@ -1,2 +1,9 @@
-
 <h1>Welcome Admin <%= current_user.first_name %> <%= current_user.last_name %></h1>
+
+<ul>
+    <% @hotels.each do |hotel| %>
+    <li><%= hotel.name %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Create Hotel', create_hotel_view_path %>
