@@ -7,5 +7,23 @@
     <% end %>
 </ul>
 
+<%= link_to 'Add Room', new_hotel_room_path(@hotel) %>
 <%= link_to 'Edit', edit_hotel_path(@hotel) %>
+
+<h2>Rooms</h2>
+<ul>
+    <% @hotel.rooms.each do |room| %>
+    <li>
+        <strong>Room Type:</strong> <%= room.room_type %><br>
+        <strong>Capacity:</strong> <%= room.capacity %><br>
+        <strong>Price:</strong> $<%= room.price %><br>
+        <strong>Amenities:</strong>
+        <ul>
+            <% room.amenities.each do |amenity| %>
+            <li><%= amenity %></li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+</ul>
 <%= link_to 'Back', admin_home_view_path %>

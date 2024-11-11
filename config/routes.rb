@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   
 
   resources :users
-  resources :hotels, only: [:index, :show, :edit, :update]
+  
+  resources :hotels do
+    resources :rooms, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  end
   
   get 'home', to: 'home#index'
   get 'login', to: 'sessions#new'
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
 
   get 'admin/hotel', to: 'hotels#new', as: 'create_hotel_view'
   post 'admin/hotel', to: 'hotels#create'
-
+  
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: 'logout' 
 
