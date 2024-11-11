@@ -1,0 +1,11 @@
+<h1>Details for <%= @room.room_type %> Room</h1>
+
+<p><strong>Capacity:</strong> <%= @room.capacity %></p>
+<p><strong>Price:</strong> $<%= @room.price %></p>
+<p><strong>Amenities:</strong></p>
+<ul>
+    <% @room.amenities.each do |amenity| %>
+    <li><%= amenity %></li>
+    <% end %>
+</ul>
+<%= link_to 'Back to Hotel', hotel_path(@hotel) %>

@@ -10,6 +10,10 @@ class RoomsController < ApplicationController
     @room = @hotel.rooms.build
   end
 
+  def show
+    @room = @hotel.rooms.find(params[:id])
+  end
+
   def create
     @room = @hotel.rooms.build(room_params)
     
@@ -21,9 +25,6 @@ class RoomsController < ApplicationController
       render :new
     end
   end
-
-  
-
 
   def edit
   end
