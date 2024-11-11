@@ -8,4 +8,6 @@
     <li><%= amenity %></li>
     <% end %>
 </ul>
-<%= link_to 'Back to Hotel', hotel_path(@hotel) %>
+
+<%= link_to 'Edit', edit_hotel_room_path(@hotel, @room) %>
+<%= link_to 'Back', hotel_path(@hotel) %>

@@ -27,6 +27,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @room = @hotel.rooms.find(params[:id])
   end
 
   def update

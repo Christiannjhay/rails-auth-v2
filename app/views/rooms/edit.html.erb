@@ -1,0 +1,54 @@
+<h1>Edit Room for <%= @hotel.name %> - <%= @room.room_type %></h1>
+
+<%= form_with model: @room, url: hotel_room_path(@hotel, @room), local: true do |form| %>
+<%= form.hidden_field :hotel_id %>
+
+<div class="field">
+    <%= form.label :room_type %>
+    <%= form.text_field :room_type %>
+</div>
+
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 4 %>
+</div>
+
+<div class="field">
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity %>
+</div>
+
+<div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.01 %>
+</div>
+
+<div class="field">
+    <%= form.label :amenities, "Select Room-Specific Amenities" %><br>
+    <%= form.check_box :amenities, { multiple: true }, "wifi", nil %> Wi-Fi<br>
+    <%= form.check_box :amenities, { multiple: true }, "air_conditioning", nil %> Air Conditioning<br>
+    <%= form.check_box :amenities, { multiple: true }, "tv", nil %> TV<br>
+    <%= form.check_box :amenities, { multiple: true }, "coffee_maker", nil %> Coffee Maker<br>
+    <%= form.check_box :amenities, { multiple: true }, "mini_fridge", nil %> Mini Fridge<br>
+    <%= form.check_box :amenities, { multiple: true }, "desk", nil %> Desk<br>
+    <%= form.check_box :amenities, { multiple: true }, "closet", nil %> Closet<br>
+    <%= form.check_box :amenities, { multiple: true }, "hair_dryer", nil %> Hair Dryer<br>
+    <%= form.check_box :amenities, { multiple: true }, "queen", nil %> Queen Bed<br>
+    <%= form.check_box :amenities, { multiple: true }, "king", nil %> King Bed<br>
+    <%= form.check_box :amenities, { multiple: true }, "single", nil %> Single Bed<br>
+    <%= form.check_box :amenities, { multiple: true }, "double", nil %> Double Bed<br>
+</div>
+
+<div class="field">
+    <%= form.label :media, "Select Media" %><br>
+    <%= form.check_box :media, { multiple: true }, "image_url_1", nil %> Image 1<br>
+    <%= form.check_box :media, { multiple: true }, "image_url_2", nil %> Image 2<br>
+    <%= form.check_box :media, { multiple: true }, "image_url_3", nil %> Image 3<br>
+</div>
+
+<div class="actions">
+    <%= form.submit "Update Room" %>
+</div>
+<% end %>
+
+<%= link_to 'Back', hotel_path(@hotel) %>
