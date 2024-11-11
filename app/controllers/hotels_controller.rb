@@ -3,6 +3,10 @@ class HotelsController < ApplicationController
 
   before_action :require_admin
 
+  def show
+    @hotel = Hotel.find(params[:id])
+  end
+  
   def new
     @hotel = Hotel.new
   end
@@ -15,6 +19,21 @@ class HotelsController < ApplicationController
     else
       flash.now[:alert] = "Failed to create hotel."
       render :new
+    end
+  end
+
+  def edit
+    @hotel = Hotel.find(params[:id])
+  end
+
+  def update
+    @hotel = Hotel.find(params[:id])
+    if @hotel.update(hotel_params)
+      flash[:notice] = "Hotel updated successfully."
+      redirect_to admin_home_view_path
+    else
+      flash.now[:alert] = "Failed to update hotel."
+      render :edit
     end
   end
 

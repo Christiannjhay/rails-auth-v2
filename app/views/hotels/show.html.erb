@@ -1,0 +1,11 @@
+<h1><%= @hotel.name %></h1>
+<p><%= @hotel.description %></p>
+<p><%= @hotel.location %></p>
+<ul>
+    <% @hotel.amenities.each do |amenity| %>
+    <li><%= amenity %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_hotel_path(@hotel) %>
+<%= link_to 'Back', admin_home_view_path %>

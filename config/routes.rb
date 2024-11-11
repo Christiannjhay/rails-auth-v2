@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
 
   resources :users
-  resources :hotels, only: [:index]
+  resources :hotels, only: [:index, :show, :edit, :update]
   
   get 'home', to: 'home#index'
   get 'login', to: 'sessions#new'
